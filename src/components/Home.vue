@@ -6,20 +6,38 @@
     <br />
     <div class="row">
       <div class="col-5 offset-1">
-        <button class="form-control btn btn-success p-4">Increment</button>
+        <button class="form-control btn btn-success p-4" @click="Increment">
+          Increment
+        </button>
       </div>
       <div class="col-5">
-        <button class="form-control btn btn-danger p-4">Decrement</button>
+        <button class="form-control btn btn-danger p-4" @click="Decrement">
+          Decrement
+        </button>
       </div>
       <div class="col-6 offset-3 pt-2">
-        <button class="form-control btn btn-warning p-4">Random</button>
+        <button class="form-control btn btn-warning p-4" @click="Random">
+          Random
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { useGameStore } from '@/store/gameStore';
+import { useGameStore } from "@/store/gameStore";
+
+function Increment() {
+  gameStore.score += gameStore.getNextAttack;
+}
+
+function Decrement() {
+  gameStore.score -= gameStore.getNextDefense;
+}
+
+function Random() {
+  Math.random() > 0.5 ? Increment() : Decrement();
+}
 
 const gameStore = useGameStore();
 </script>
