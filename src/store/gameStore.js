@@ -11,6 +11,7 @@ export const useGameStore = defineStore("gameStore", {
     getScore() {
       return this.score;
     },
+    
   },
   actions: {
     setNextAttack() {
@@ -23,5 +24,8 @@ export const useGameStore = defineStore("gameStore", {
       console.log("defense: ", defense);
       this.score -= defense;
     },
+    resetScore(){
+        this.score = 0;
+    }
   },
 });
