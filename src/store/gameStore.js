@@ -11,7 +11,9 @@ export const useGameStore = defineStore("gameStore", {
     getScore() {
       return this.score;
     },
-    
+    getWinningScore(){
+        return this.maxHeath;
+    }
   },
   actions: {
     setNextAttack() {
